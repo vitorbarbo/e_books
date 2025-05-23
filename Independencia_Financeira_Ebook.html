@@ -1,0 +1,1290 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Independência Financeira Descomplicada</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8; /* Light blue-gray background */
+            color: #2d3748; /* Darker text for professionalism */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+        .ebook-container {
+            background-color: #ffffff;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15); /* Stronger, more elegant shadow */
+            border-radius: 2.5rem; /* Even more rounded corners */
+            overflow: hidden;
+            width: 100%;
+            max-width: 1280px; /* Slightly wider for more content */
+            margin: 3rem auto; /* Increased margin */
+        }
+        .ebook-page {
+            width: 100%;
+            height: auto;
+            min-height: 700px; /* Increased min-height */
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start; /* Align content to start */
+            align-items: center;
+            padding: 4rem 7rem; /* More generous padding */
+            box-sizing: border-box;
+            text-align: center;
+            border-bottom: 1px solid #e2e8f0;
+            position: relative;
+        }
+        .ebook-page:last-child {
+            border-bottom: none;
+        }
+        .page-number {
+            position: absolute;
+            bottom: 2rem;
+            right: 3rem;
+            font-size: 1rem;
+            color: #94a3b8;
+            font-weight: 300;
+        }
+        .visual-page {
+            background-color: #e6f0ff; /* Soft blue for visual emphasis */
+            color: #1a365d; /* Dark blue for contrast */
+        }
+        .text-page {
+            background-color: #ffffff;
+            color: #2d3748;
+            text-align: left; /* Justify text to the left */
+        }
+        h1 {
+            font-size: 4rem; /* Larger main headings */
+            font-weight: 800;
+            color: #1a202c;
+            margin-bottom: 2.5rem; /* Increased spacing */
+            line-height: 1.1;
+            letter-spacing: -0.02em; /* Slightly tighter letter spacing */
+        }
+        h2 {
+            font-size: 2.5rem; /* Larger subheadings */
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 2rem; /* Increased spacing */
+            padding-top: 1rem; /* Consistent spacing from module title */
+        }
+        h3 {
+            font-size: 1.8rem; /* Slightly larger section titles */
+            font-weight: 600;
+            color: #4a5568;
+            margin-bottom: 1.5rem; /* Increased spacing */
+        }
+        p {
+            font-size: 1.25rem; /* Larger body text */
+            line-height: 1.9; /* Improved line height for readability */
+            margin-bottom: 2.5rem; /* Increased spacing */
+            max-width: 900px; /* Limit text width for readability */
+            margin-left: auto;
+            margin-right: auto;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 2rem;
+            max-width: 900px; /* Limit list width for readability */
+            margin-left: auto;
+            margin-right: auto;
+        }
+        ul li {
+            font-size: 1.2rem;
+            line-height: 1.9;
+            margin-bottom: 0.8rem;
+            position: relative;
+            padding-left: 2rem; /* More space for icon */
+        }
+        ul li::before {
+            font-family: "Font Awesome 6 Free";
+            content: "\f00c"; /* Checkmark icon */
+            font-weight: 900;
+            color: #34d399; /* Vibrant green checkmark */
+            position: absolute;
+            left: 0;
+            top: 0.2rem;
+            font-size: 1.1rem;
+        }
+        .highlight-box {
+            background-color: #dbeafe;
+            padding: 2.5rem;
+            border-radius: 1.25rem;
+            margin-top: 3rem;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #1e40af;
+            line-height: 1.5;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08); /* More subtle shadow */
+            border: 1px solid #93c5fd; /* Light border */
+            max-width: 900px; /* Limit highlight box width */
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .impact-phrase {
+            font-size: 2rem; /* Larger impact phrases */
+            font-weight: 800;
+            color: #2563eb;
+            margin-top: 3rem;
+            line-height: 1.4;
+            letter-spacing: -0.01em;
+            max-width: 900px; /* Limit impact phrase width */
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .icon {
+            font-size: 5rem; /* Larger icons */
+            margin-bottom: 2rem;
+            color: #2563eb;
+        }
+
+        /* Estilos específicos para o Sumário */
+        .summary-page {
+            text-align: left;
+            align-items: flex-start;
+            padding-top: 6rem;
+        }
+        .summary-page h2 {
+            margin-bottom: 3rem;
+            color: #1a202c;
+            text-align: center;
+            width: 100%;
+        }
+        .summary-content {
+            display: grid;
+            grid-template-columns: 1fr; /* Default to single column */
+            gap: 2rem;
+            width: 100%;
+            max-width: 1000px; /* Wider summary content */
+            margin: 0 auto;
+            justify-items: center; /* Center items in grid */
+        }
+        @media (min-width: 768px) {
+            .summary-content {
+                grid-template-columns: repeat(2, 1fr); /* Two columns on medium screens */
+            }
+        }
+        @media (min-width: 1024px) {
+            .summary-content {
+                grid-template-columns: repeat(3, 1fr); /* Three columns on large screens */
+            }
+        }
+
+        .summary-module-section {
+            background-color: #f8fafc;
+            padding: 1.5rem 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e2e8f0;
+            width: 100%; /* Ensure cards take full width of their grid column */
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .summary-page h3 {
+            margin-top: 0;
+            margin-bottom: 1rem;
+            color: #2d3748;
+            text-align: left;
+            font-size: 1.6rem;
+        }
+        .summary-page ul {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 0;
+            width: 100%; /* Ensure list takes full width of its parent */
+        }
+        .summary-page ul li {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 0.4rem;
+            padding-left: 0;
+        }
+        .summary-page ul li::before {
+            content: none;
+        }
+        .summary-page ul li a {
+            color: #2563eb; /* Link color */
+            text-decoration: none; /* No underline by default */
+            transition: color 0.2s ease;
+        }
+        .summary-page ul li a:hover {
+            text-decoration: underline; /* Underline on hover */
+            color: #1a4a9b; /* Darker blue on hover */
+        }
+        .summary-page ul li b {
+            color: #2563eb;
+        }
+
+        /* Estilos para a Capa */
+        .cover-page {
+            background: linear-gradient(135deg, #1a365d 0%, #2a5298 100%); /* Deep blue gradient */
+            color: #ffffff;
+            justify-content: center;
+            text-align: center;
+            height: 100vh;
+            padding: 0;
+            border-radius: 2.5rem;
+            box-shadow: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .cover-page::before { /* Subtle background pattern */
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: radial-gradient(circle at 10% 20%, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.05) 50%, rgba(255,255,255,0) 70%);
+            background-size: 150px 150px;
+            opacity: 0.3;
+            z-index: 0;
+        }
+        .cover-content {
+            position: relative;
+            z-index: 1;
+            padding: 2rem;
+            max-width: 900px;
+        }
+        .cover-page h1 {
+            font-size: 6.5rem;
+            color: #ffffff;
+            line-height: 1.0;
+            margin-bottom: 2.5rem;
+            text-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+            letter-spacing: -0.04em;
+        }
+        .cover-page h2 {
+            font-size: 3rem;
+            color: #bfdbfe;
+            font-weight: 400;
+            line-height: 1.3;
+            text-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Interactive Section Styles */
+        .interactive-section {
+            width: 100%;
+            max-width: 900px; /* Wider interactive sections to match text width */
+            margin-top: 3rem;
+            text-align: left;
+        }
+        .interactive-header {
+            background-color: #e0f2fe;
+            padding: 1.2rem 1.8rem;
+            border-radius: 1rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 700;
+            font-size: 1.3rem;
+            color: #1e40af;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            margin-bottom: 0.75rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+        .interactive-header:hover {
+            background-color: #bfdbfe;
+            transform: translateY(-2px);
+        }
+        .interactive-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.6s ease-out, padding 0.6s ease-out;
+            padding: 0 1.8rem;
+            background-color: #f0f9ff;
+            border-radius: 1rem;
+            margin-bottom: 0.75rem;
+            border: 1px solid #dbeafe;
+        }
+        .interactive-content.expanded {
+            max-height: 800px;
+            padding: 1.5rem 1.8rem;
+            transition: max-height 0.8s ease-in, padding 0.8s ease-in;
+        }
+        .interactive-content p, .interactive-content ul {
+            margin-bottom: 1.2rem;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+        .interactive-content ul li::before {
+            content: '\f00c';
+            color: #34d399;
+        }
+        .arrow-icon {
+            transition: transform 0.3s ease;
+        }
+        .arrow-icon.rotated {
+            transform: rotate(90deg);
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .ebook-container {
+                margin: 1.5rem auto;
+                border-radius: 1rem;
+            }
+            .ebook-page {
+                padding: 2rem 1.5rem;
+                height: auto;
+                min-height: 450px;
+            }
+            h1 {
+                font-size: 2.8rem;
+            }
+            h2 {
+                font-size: 1.8rem;
+            }
+            p, ul li {
+                font-size: 1.05rem;
+            }
+            ul li::before {
+                top: 0.1rem;
+                font-size: 0.9rem;
+            }
+            .icon {
+                font-size: 3rem;
+            }
+            .impact-phrase {
+                font-size: 1.4rem;
+            }
+            .cover-page h1 {
+                font-size: 3.5rem;
+            }
+            .cover-page h2 {
+                font-size: 1.8rem;
+            }
+            .highlight-box {
+                padding: 1.25rem;
+                font-size: 1.1rem;
+            }
+            .page-number {
+                bottom: 1rem;
+                right: 1.5rem;
+                font-size: 0.8rem;
+            }
+            .summary-page h2 {
+                margin-bottom: 1.5rem;
+            }
+            .summary-page h3 {
+                margin-top: 1.5rem;
+            }
+            .summary-page ul li {
+                font-size: 1rem;
+            }
+            .interactive-header {
+                font-size: 1rem;
+                padding: 0.8rem 1rem;
+            }
+            .interactive-content {
+                padding: 0 1rem;
+            }
+            .interactive-content.expanded {
+                padding: 0.8rem 1rem;
+            }
+            .interactive-content p, .interactive-content ul {
+                font-size: 0.95rem;
+            }
+            .summary-content {
+                grid-template-columns: 1fr; /* Single column on small screens */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="ebook-container">
+
+        <div class="ebook-page cover-page" id="page-1">
+            <div class="cover-content">
+                <h1>Independência Financeira Descomplicada</h1>
+                <h2>Seu Guia Visual para a Liberdade Duradoura</h2>
+            </div>
+            <div class="page-number">Página 1</div>
+        </div>
+
+        <div class="ebook-page text-page summary-page" id="page-2">
+            <h2>Sumário</h2>
+            <div class="summary-content">
+                <div class="summary-module-section">
+                    <h3>Módulo 1: Fundamentos da Independência Financeira</h3>
+                    <ul>
+                        <li><a href="#page-3"><b>Página 3:</b> O que é Independência Financeira?</a></li>
+                        <li><a href="#page-4"><b>Página 4:</b> Diferença entre Riqueza e Liberdade</a></li>
+                        <li><a href="#page-5"><b>Página 5:</b> Tipos de Perfis e Objetivos</a></li>
+                    </ul>
+                </div>
+
+                <div class="summary-module-section">
+                    <h3>Módulo 2: Organize sua Vida Financeira</h3>
+                    <ul>
+                        <li><a href="#page-6"><b>Página 6:</b> Diagnóstico Financeiro</a></li>
+                        <li><a href="#page-7"><b>Página 7:</b> Orçamento Pessoal e Familiar</a></li>
+                        <li><a href="#page-8"><b>Página 8:</b> Eliminação de Dívidas com Inteligência</a></li>
+                    </ul>
+                </div>
+
+                <div class="summary-module-section">
+                    <h3>Módulo 3: Ganhe Mais e Gaste Melhor</h3>
+                    <ul>
+                        <li><a href="#page-9"><b>Página 9:</b> Aumentando sua Renda: Carreira, Negócios e Renda Extra</a></li>
+                        <li><a href="#page-10"><b>Página 10:</b> Frugalidade Inteligente vs. Privação</a></li>
+                        <li><a href="#page-11"><b>Página 11:</b> Como Identificar Gastos Desnecessários</a></li>
+                    </ul>
+                </div>
+
+                <div class="summary-module-section">
+                    <h3>Módulo 4: Investimentos e Renda Passiva</h3>
+                    <ul>
+                        <li><a href="#page-12"><b>Página 12:</b> Introdução aos Investimentos para FI</a></li>
+                        <li><a href="#page-13"><b>Página 13:</b> Renda Passiva e Juros Compostos</a></li>
+                        <li><a href="#page-14"><b>Página 14:</b> Riscos e Segurança Financeira</a></li>
+                    </ul>
+                </div>
+
+                <div class="summary-module-section">
+                    <h3>Módulo 5: Estratégia de Longo Prazo e Vida com Propósito</h3>
+                    <ul>
+                        <li><a href="#page-15"><b>Página 15:</b> Planejamento para 10, 20, 30 Anos</a></li>
+                        <li><a href="#page-16"><b>Página 16:</b> Geoarbitragem, Mini-aposentadorias e Lifestyle Design</a></li>
+                        <li><a href="#page-17"><b>Página 17:</b> O Que Fazer Depois de Atingir a FI</a></li>
+                    </ul>
+                </div>
+
+                <div class="summary-module-section">
+                    <h3>Módulo 6: Legado e Propósito Além da Riqueza</h3>
+                    <ul>
+                        <li><a href="#page-18"><b>Página 18:</b> Impacto Social e Filantropia</a></li>
+                        <li><a href="#page-19"><b>Página 19:</b> Construindo um Legado Duradouro</a></li>
+                        <li><a href="#page-20"><b>Página 20:</b> A Jornada Continua: Crescimento Pessoal e Financeiro</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="page-number">Página 2</div>
+        </div>
+
+        <div class="ebook-page visual-page" id="page-3">
+            <i class="fas fa-lightbulb icon"></i>
+            <h2>Módulo 1: Fundamentos da Independência Financeira</h2>
+            <h1>O que é Independência Financeira?</h1>
+            <div class="highlight-box">
+                Não é sobre ser milionário. É sobre ter <b>escolhas</b>.
+            </div>
+            <p class="mt-4 text-center max-w-2xl">
+                A Independência Financeira (IF) representa um estado onde seus ativos geram renda suficiente para cobrir todas as suas despesas de vida, eliminando a necessidade de um emprego tradicional. Mais do que um mero acúmulo de riqueza, a IF é a conquista da <b>liberdade de tempo e propósito</b>. Significa ter o poder de decidir como você gasta cada minuto do seu dia, sem a pressão de um salário para sobreviver.
+            </p>
+            <p class="mt-4 text-center max-w-2xl">
+                Imagine ter a flexibilidade de seguir suas paixões, dedicar-se a projetos pessoais, passar mais tempo com a família, viajar ou simplesmente relaxar, sem se preocupar com as contas. A IF não é um destino para poucos privilegiados, mas uma jornada acessível a todos que se dedicam a um planejamento financeiro inteligente e consistente. É a materialização da autonomia sobre sua própria vida.
+            </p>
+            <p class="impact-phrase">💰 Seu tempo, suas regras. Sua vida, seu design.</p>
+
+            <div class="mt-8 flex flex-col items-center">
+                <button id="generateTipBtn" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-xl shadow-lg transition duration-300 ease-in-out transform hover:scale-105">
+                    Gerar Dica Financeira ✨
+                </button>
+                <div id="tipResult" class="mt-4 p-4 bg-blue-100 text-blue-800 rounded-lg shadow-md max-w-2xl hidden">
+                    <p id="tipText" class="text-lg italic"></p>
+                    <div id="tipLoading" class="hidden flex justify-center items-center mt-2">
+                        <i class="fas fa-spinner fa-spin text-blue-600 text-xl"></i>
+                        <span class="ml-2 text-blue-600">Gerando dica...</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="page-number">Página 3</div>
+        </div>
+
+        <div class="ebook-page text-page" id="page-4">
+            <h2>Módulo 1: Fundamentos da Independência Financeira</h2>
+            <h1>Diferença entre Riqueza e Liberdade</h1>
+            <p>
+                É crucial distinguir <b>riqueza</b> de <b>liberdade financeira</b>. A riqueza é o acúmulo de bens e dinheiro, como carros de luxo, casas grandes e contas bancárias volumosas. Uma pessoa pode ser extremamente rica, mas ainda assim estar presa a um estilo de vida de alto custo, com dívidas significativas ou um trabalho exaustivo para manter seu padrão de vida. Nesse cenário, o dinheiro se torna um fardo, e não um libertador.
+            </p>
+            <p>
+                A <b>liberdade financeira</b>, por outro lado, foca na capacidade de cobrir suas despesas com renda passiva, independentemente do seu patrimônio total. É a habilidade de desvincular seu tempo da necessidade de gerar renda ativa. Você pode ter um patrimônio "modesto" em comparação com um milionário, mas se suas despesas são baixas e sua renda passiva as cobre, você é financeiramente livre. A liberdade é sobre ter o "suficiente" para viver a vida que você deseja, com tempo para o que realmente importa.
+            </p>
+            <div class="page-number">Página 4</div>
+        </div>
+
+        <div class="ebook-page text-page" id="page-5">
+            <h2>Módulo 1: Fundamentos da Independência Financeira</h2>
+            <h1>Tipos de Perfis e Objetivos</h1>
+            <div class="w-full max-w-xl mx-auto">
+                <p class="text-xl font-semibold mb-4">
+                    <i class="fas fa-search text-2xl mr-2 text-blue-600"></i> <b>Qual é o seu caminho?</b>
+                </p>
+                <p class="mb-4">
+                    A jornada para a Independência Financeira é altamente pessoal. Existem diversos perfis e objetivos, e o seu plano deve ser moldado de acordo com suas aspirações e estilo de vida.
+                </p>
+
+                <div class="interactive-section">
+                    <div class="interactive-header" data-target="fireDetails">
+                        <span>Aposentadoria Antecipada (FIRE)</span>
+                        <i class="fas fa-chevron-right arrow-icon"></i>
+                    </div>
+                    <div id="fireDetails" class="interactive-content">
+                        <p>Este é o objetivo mais ambicioso, onde o foco é acumular capital rapidamente para se aposentar décadas antes da idade tradicional. Dentro do FIRE, há subcategorias como:</p>
+                        <ul>
+                            <li><b>LeanFIRE:</b> Viver com um orçamento muito enxuto, minimizando as despesas para atingir a IF mais rápido.</li>
+                            <li><b>FatFIRE:</b> Acumular um patrimônio substancial para manter um estilo de vida luxuoso após a IF.</li>
+                            <li><b>CoastFIRE:</b> Construir uma base de investimentos que, com o tempo e os juros compostos, crescerá o suficiente para a aposentadoria, permitindo que você trabalhe menos ou em algo mais prazeroso no presente.</li>
+                            <li><b>BaristaFIRE:</b> Ter renda passiva suficiente para cobrir despesas básicas, mas ainda trabalhar meio período ou em um emprego de baixo estresse para cobrir extras e manter benefícios.</li>
+                        </ul>
+                    </div>
+
+                    <div class="interactive-header" data-target="securityDetails">
+                        <span>Segurança Financeira</span>
+                        <i class="fas fa-chevron-right arrow-icon"></i>
+                    </div>
+                    <div id="securityDetails" class="interactive-content">
+                        <p>Um objetivo mais imediato, que envolve ter um fundo de emergência robusto (6 a 12 meses de despesas) e reservas para imprevistos, proporcionando tranquilidade para lidar com qualquer eventualidade.</p>
+                    </div>
+
+                    <div class="interactive-header" data-target="choiceDetails">
+                        <span>Liberdade para Escolher</span>
+                        <i class="fas fa-chevron-right arrow-icon"></i>
+                    </div>
+                    <div id="choiceDetails" class="interactive-content">
+                        <p>Para muitos, a IF não significa parar de trabalhar, mas sim ter a liberdade de reduzir a carga de trabalho, mudar de carreira para algo mais alinhado com seus valores, dedicar-se a projetos pessoais ou simplesmente ter mais tempo para a família e hobbies, sem a pressão financeira.</p>
+                    </div>
+                </div>
+
+                <p class="impact-phrase text-center mt-8">Cada perfil exige uma estratégia única, alinhada aos seus valores e sonhos.</p>
+                <p class="impact-phrase text-center mt-4">🚀 Seu futuro, sua visão. Defina-os com clareza.</p>
+            </div>
+            <div class="page-number">Página 5</div>
+        </div>
+
+        <div class="ebook-page visual-page" id="page-6">
+            <i class="fas fa-chart-pie icon"></i>
+            <h2>Módulo 2: Organize sua Vida Financeira</h2>
+            <h1>Diagnóstico Financeiro</h1>
+            <div class="highlight-box">
+                Onde você está hoje? O primeiro passo para o controle é o <b>CONHECIMENTO PROFUNDO</b> de sua situação.
+            </div>
+            <p class="mt-4 text-center max-w-2xl">
+                Antes de traçar qualquer rota, você precisa saber de onde está partindo. O diagnóstico financeiro é a radiografia da sua vida financeira, revelando seus pontos fortes e fracos. Comece listando detalhadamente:
+            </p>
+            <ul class="text-left mx-auto max-w-xl">
+                <li><b>Ativos:</b> Tudo o que você possui e que tem valor monetário. Isso inclui dinheiro em contas correntes e poupança, investimentos (ações, fundos, títulos), imóveis (casa, apartamento, terreno), veículos, joias, e outros bens de valor. Seja o mais preciso possível na avaliação.</li>
+                <li><b>Passivos:</b> Todas as suas dívidas e obrigações financeiras. Isso abrange empréstimos (pessoais, consignados), financiamentos (imobiliários, de veículos), dívidas de cartão de crédito, cheque especial, crediários, e qualquer outra conta a pagar. Liste o valor total e as taxas de juros de cada um.</li>
+                <li><b>Patrimônio Líquido:</b> A sua verdadeira riqueza. É o resultado da subtração dos seus Passivos dos seus Ativos (Ativos - Passivos). Um patrimônio líquido positivo e crescente é um sinal de progresso em direção à IF. Se for negativo, não se desespere; é o ponto de partida para a mudança.</li>
+                <li><b>Fluxo de Caixa:</b> Monitore suas entradas (salário, renda extra, bônus) e saídas (despesas fixas e variáveis) por um período de 30 a 90 dias. Isso revelará para onde seu dinheiro está realmente indo e onde estão os "ralos" financeiros.</li>
+            </ul>
+            <p class="impact-phrase">📊 Visualize seu cenário atual. Conhecer seus números é o primeiro passo para dominá-los.</p>
+            <div class="page-number">Página 6</div>
+        </div>
+
+        <div class="ebook-page text-page" id="page-7">
+            <h2>Módulo 2: Organize sua Vida Financeira</h2>
+            <h1>Orçamento Pessoal e Familiar</h1>
+            <div class="w-full mx-auto">
+                <h3 class="text-center">O SEGREDO DO CONTROLE: A Bússola da sua Jornada</h3>
+                <p>
+                    O orçamento é a ferramenta mais poderosa para assumir o controle das suas finanças e direcionar seu dinheiro para onde ele realmente importa. Ele não serve para restringir, mas para dar liberdade através do conhecimento e do planejamento.
+                </p>
+                <p>
+                    <b>Como Construir um Orçamento Eficaz:</b>
+                </p>
+                <ul>
+                    <li><b>1. Registre Todas as Entradas:</b> Liste todas as fontes de renda que você e sua família recebem (salário, renda extra, aluguéis, bônus, etc.).</li>
+                    <li><b>2. Classifique as Saídas:</b>
+                        <ul>
+                            <li><b>Despesas Fixas:</b> Aquelas que têm um valor constante e recorrente (aluguel/financiamento, mensalidade da escola, seguro, assinaturas).</li>
+                            <li><b>Despesas Variáveis:</b> Aquelas que oscilam mês a mês (alimentação, transporte, lazer, contas de água/luz/gás).</li>
+                            <li><b>Despesas Ocasionais/Anuais:</b> Aquelas que não são mensais, mas precisam ser planejadas (IPVA, IPTU, material escolar, presentes de Natal).</li>
+                        </ul>
+                    </li>
+                    <li><b>3. Escolha um Método de Orçamento:</b></li>
+                </ul>
+
+                <div class="interactive-section">
+                    <div class="interactive-header" data-target="ruleDetails">
+                        <span>Regra 50/30/20</span>
+                        <i class="fas fa-chevron-right arrow-icon"></i>
+                    </div>
+                    <div id="ruleDetails" class="interactive-content">
+                        <p>50% da sua renda para necessidades (moradia, alimentação básica, transporte essencial), 30% para desejos (lazer, restaurantes, hobbies) e 20% para poupança e pagamento de dívidas. É um método simples e eficaz para começar.</p>
+                    </div>
+
+                    <div class="interactive-header" data-target="zeroBasedDetails">
+                        <span>Orçamento Base Zero</span>
+                        <i class="fas fa-chevron-right arrow-icon"></i>
+                    </div>
+                    <div id="zeroBasedDetails" class="interactive-content">
+                        <p>Cada centavo da sua renda tem um "trabalho" definido. Você aloca cada real para uma categoria específica, garantindo que nada seja gasto sem propósito. Exige mais disciplina, mas oferece controle total.</p>
+                    </div>
+
+                    <div class="interactive-header" data-target="envelopeDetails">
+                        <span>Sistema de Envelopes</span>
+                        <i class="fas fa-chevron-right arrow-icon"></i>
+                    </div>
+                    <div id="envelopeDetails" class="interactive-content">
+                        <p>Para quem prefere o controle físico do dinheiro. Separe o dinheiro para cada categoria em envelopes distintos. Quando o dinheiro do envelope acabar, você para de gastar naquela categoria.</p>
+                    </div>
+                </div>
+
+                <p class="mt-4">
+                    <li><b>4. Acompanhamento e Ajustes:</b> O orçamento não é estático. Monitore seus gastos regularmente (diariamente ou semanalmente) usando aplicativos, planilhas ou cadernos. Esteja aberto a ajustar as categorias e os valores conforme sua realidade muda.</li>
+                </p>
+                <p class="impact-phrase text-center">Guie seu dinheiro com intencionalidade, não o contrário. Cada real tem um propósito.</p>
+            </div>
+            <div class="page-number">Página 7</div>
+        </div>
+
+        <div class="ebook-page text-page" id="page-8">
+            <i class="fas fa-hand-holding-dollar icon"></i>
+            <h2>Módulo 2: Organize sua Vida Financeira</h2>
+            <h1>Eliminação de Dívidas com Inteligência</h1>
+            <p>
+                Dívidas são como âncoras pesadas que impedem seu progresso em direção à Independência Financeira. Eliminá-las de forma estratégica é um passo fundamental para libertar seu fluxo de caixa e direcionar seus recursos para investimentos.
+            </p>
+            <p>
+                <b>Estratégias Eficazes para Eliminar Dívidas:</b>
+            </p>
+            <ul class="text-left mx-auto max-w-xl">
+                <li><b>1. Priorize as Dívidas com Juros Altos:</b> Comece atacando as dívidas mais "caras", como cartão de crédito e cheque especial. Os juros compostos trabalham contra você nessas modalidades, corroendo seu capital rapidamente. Pague o máximo possível nessas dívidas primeiro.</li>
+                <li><b>2. Método Bola de Neve (Snowball):</b> Foco na motivação. Liste suas dívidas da menor para a maior (independentemente dos juros). Pague o mínimo em todas, exceto na menor, onde você direciona todo o dinheiro extra. Ao quitar a menor, use o valor que era pago nela para atacar a próxima, criando um "efeito bola de neve" de pagamentos crescentes.</li>
+                <li><b>3. Método Bola de Gelo (Avalanche):</b> Foco na matemática. Liste suas dívidas da maior taxa de juros para a menor. Pague o mínimo em todas, exceto na de maior juros, onde você direciona todo o dinheiro extra. Ao quitar a mais cara, use o valor para atacar a próxima. Este método economiza mais dinheiro em juros a longo prazo.</li>
+                <li><b>4. Negocie com Credores:</b> Não tenha medo de entrar em contato com seus credores. Muitas instituições estão abertas a negociar taxas de juros mais baixas, prazos de pagamento estendidos ou até mesmo descontos no valor total da dívida, especialmente se você puder fazer um pagamento à vista.</li>
+                <li><b>5. Consolidação de Dívidas:</b> Considere pegar um empréstimo com juros mais baixos para quitar várias dívidas de juros altos. Isso simplifica seus pagamentos e pode reduzir o custo total da dívida.</li>
+                <li><b>6. Evite Novas Dívidas:</b> Enquanto estiver no processo de eliminação, seja extremamente disciplinado para não contrair novas dívidas. Corte gastos desnecessários e use sua renda extra para acelerar o processo.</li>
+            </ul>
+            <p class="impact-phrase">Recupere seu poder financeiro. Cada dívida eliminada é um passo gigante rumo à sua liberdade.</p>
+            <div class="page-number">Página 8</div>
+        </div>
+
+        <div class="ebook-page visual-page" id="page-9">
+            <i class="fas fa-sack-dollar icon"></i>
+            <h2>Módulo 3: Ganhe Mais e Gaste Melhor</h2>
+            <h1>Aumentando sua Renda: Carreira, Negócios e Renda Extra</h1>
+            <div class="highlight-box">
+                EXPANDINDO SEU POTENCIAL: Não se limite a uma única fonte. Multiplicar sua renda acelera sua jornada para a IF.
+            </div>
+            <p class="mt-4 text-center max-w-2xl">
+                Enquanto cortar gastos é essencial, aumentar sua renda tem um potencial ilimitado para acelerar sua jornada rumo à Independência Financeira. Explore as três principais avenidas:
+            </p>
+            <ul class="text-left mx-auto max-w-xl">
+                <li><b>1. Carreira e Desenvolvimento Profissional:</b>
+                    <ul>
+                        <li><b>Invista em Qualificações:</b> Busque cursos, certificações, pós-graduações que agreguem valor à sua área.</li>
+                        <li><b>Aprimore Habilidades:</b> Desenvolva "soft skills" (comunicação, liderança) e "hard skills" (programação, análise de dados) que são valorizadas no mercado.</li>
+                        <li><b>Networking:</b> Conecte-se com profissionais da sua área, participe de eventos e construa relacionamentos.</li>
+                        <li><b>Busque Promoções e Aumentos:</b> Apresente seus resultados e negocie seu valor.</li>
+                        <li><b>Troca de Emprego:</b> Às vezes, a maior alavancagem salarial vem de uma transição para uma nova empresa.</li>
+                    </ul>
+                </li>
+                <li><b>2. Negócios e Empreendedorismo:</b>
+                    <ul>
+                        <li><b>Crie Valor:</b> Identifique problemas e ofereça soluções. Pode ser um produto físico, um serviço ou uma plataforma digital.</li>
+                        <li><b>Comece Pequeno:</b> Não precisa de um grande investimento inicial. Teste sua ideia com um MVP (Produto Mínimo Viável).</li>
+                        <li><b>Aprenda sobre Vendas e Marketing:</b> Essenciais para qualquer negócio prosperar.</li>
+                    </ul>
+                </li>
+                <li><b>3. Renda Extra e Side Hustles:</b>
+                    <ul>
+                        <li><b>Monetize Hobbies:</b> Transforme suas paixões (fotografia, artesanato, culinária) em fontes de renda.</li>
+                        <li><b>Freelance:</b> Ofereça seus serviços em plataformas online (redação, design, consultoria).</li>
+                        <li><b>Venda de Itens Não Utilizados:</b> Desapegue do que não usa e transforme em dinheiro.</li>
+                        <li><b>Aluguéis:</b> Considere alugar um quarto extra, um imóvel ou até seu carro por plataformas.</li>
+                        <li><b>Aulas Particulares/Consultorias:</b> Compartilhe seu conhecimento em uma área que você domina.</li>
+                    </ul>
+                </li>
+            </ul>
+            <p class="impact-phrase">Seu tempo é seu maior ativo. Use-o para construir múltiplas fontes de renda e acelerar sua liberdade.</p>
+
+            <div class="mt-8 flex flex-col items-center w-full max-w-2xl">
+                <h3 class="text-xl font-semibold mb-3 text-gray-700">Gerador de Ideias para Renda Extra ✨</h3>
+                <input type="text" id="skillsInput" placeholder="Ex: escrita, design, culinária, programação" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4">
+                <button id="generateIdeasBtn" class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-xl shadow-lg transition duration-300 ease-in-out transform hover:scale-105">
+                    Gerar Ideias ✨
+                </button>
+                <div id="ideasResult" class="mt-4 p-4 bg-green-100 text-green-800 rounded-lg shadow-md w-full hidden text-left">
+                    <p id="ideasText" class="text-lg"></p>
+                    <div id="ideasLoading" class="hidden flex justify-center items-center mt-2">
+                        <i class="fas fa-spinner fa-spin text-green-600 text-xl"></i>
+                        <span class="ml-2 text-green-600">Gerando ideias...</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="page-number">Página 9</div>
+        </div>
+
+        <div class="ebook-page text-page" id="page-10">
+            <h2>Módulo 3: Ganhe Mais e Gaste Melhor</h2>
+            <h1>Frugalidade Inteligente vs. Privação</h1>
+            <div class="w-full mx-auto">
+                <h3 class="text-center">SÁBIOS HÁBITOS, SEM SACRIFÍCIOS: A Arte de Viver Bem com Menos</h3>
+                <p>
+                    A <b>frugalidade inteligente</b> é a prática de otimizar seus gastos e recursos de forma consciente, sem comprometer sua qualidade de vida. Não se trata de privação, mas de encontrar valor e satisfação em escolhas mais eficientes e sustentáveis. É uma mentalidade de abundância, onde você valoriza o que tem e busca maximizar o retorno de cada real gasto.
+                </p>
+                <p>
+                    <b>Frugalidade Inteligente:</b>
+                </p>
+                <ul>
+                    <li><b>Priorize Experiências sobre Bens Materiais:</b> Invista em viagens, cursos, tempo com entes queridos, em vez de acumular objetos que perdem valor.</li>
+                    <li><b>Cozinhe em Casa:</b> Comer fora é um dos maiores "ralos" financeiros. Preparar suas refeições é mais saudável e muito mais econômico.</li>
+                    <li><b>Transporte Alternativo:</b> Considere caminhar, pedalar, usar transporte público ou caronas solidárias para reduzir custos com combustível e manutenção de veículos.</li>
+                    <li><b>Compras Planejadas e em Atacado:</b> Faça listas, pesquise preços e compre itens não perecíveis em maior quantidade quando estiverem em promoção.</li>
+                    <li><b>Manutenção Preventiva:</b> Cuide de seus bens (carro, casa, eletrodomésticos) para prolongar sua vida útil e evitar gastos maiores com reparos.</li>
+                    <li><b>DIY (Faça Você Mesmo):</b> Aprenda a fazer pequenos reparos, consertos ou até mesmo presentes, economizando dinheiro e desenvolvendo novas habilidades.</li>
+                </ul>
+                <p>
+                    A <b>privação</b>, por outro lado, é um corte indiscriminado de gastos que leva à frustração, ao ressentimento e, muitas vezes, ao abandono do plano financeiro. Ela ignora suas necessidades e desejos básicos, tornando a jornada insustentável.
+                </p>
+                <p class="impact-phrase text-center">Encontre o equilíbrio que funciona para você. A frugalidade deve te empoderar, não te aprisionar.</p>
+            </div>
+            <div class="page-number">Página 10</div>
+        </div>
+
+        <div class="ebook-page visual-page" id="page-11">
+            <i class="fas fa-magnifying-glass-dollar icon"></i>
+            <h2>Módulo 3: Ganhe Mais e Gaste Melhor</h2>
+            <h1>Como Identificar Gastos Desnecessários</h1>
+            <div class="highlight-box">
+                DESMASCARE O INVISÍVEL: Muitas vezes, o dinheiro "some" em pequenos gastos que, somados, comprometem seu futuro.
+            </div>
+            <p class="mt-4 text-center max-w-2xl">
+                A chave para otimizar seus gastos é identificar os "ralos" ocultos que drenam seu dinheiro sem que você perceba o real valor. Pequenos gastos diários, assinaturas esquecidas e compras por impulso podem somar quantias surpreendentes ao longo do mês e do ano.
+            </p>
+            <ul class="text-left mx-auto max-w-xl">
+                <li><b>1. Crie um Diário de Gastos Detalhado:</b> Por um mês, anote absolutamente TUDO o que você gasta, por menor que seja. Use um aplicativo, uma planilha ou um caderno. O objetivo é ter uma visão clara de para onde cada centavo está indo.</li>
+                <li><b>2. Categorize Seus Gastos:</b> Agrupe suas despesas em categorias (alimentação, transporte, lazer, moradia, educação, etc.). Isso facilitará a identificação de áreas onde você gasta mais do que gostaria.</li>
+                <li><b>3. Auditoria de Assinaturas e Serviços:</b> Revise todas as suas assinaturas (streaming, academia, aplicativos, softwares, clubes). Você realmente usa todas elas? Há alternativas mais baratas ou gratuitas? Cancele o que não é essencial.</li>
+                <li><b>4. Avalie "Desejos" vs. "Necessidades":</b> Para cada gasto, pergunte-se: isso é uma necessidade básica para minha sobrevivência e bem-estar, ou é um desejo que posso adiar ou eliminar? Não é sobre cortar todos os desejos, mas sobre fazer escolhas conscientes.</li>
+                <li><b>5. Atenção aos Pequenos Gastos Diários:</b> O cafezinho diário, o almoço por aplicativo, a compra por impulso na fila do caixa. Esses pequenos gastos somam rapidamente e são os mais difíceis de controlar sem um acompanhamento rigoroso.</li>
+                <li><b>6. Analise Seus Extratos Bancários e de Cartão:</b> Eles são uma mina de ouro de informações sobre seus hábitos de consumo. Procure por padrões de gastos que você não havia notado.</li>
+                <li><b>7. Automatize Suas Economias:</b> Uma vez que você identifica onde pode cortar, direcione esse dinheiro automaticamente para sua poupança ou investimentos. Faça com que o dinheiro "desapareça" antes que você tenha a chance de gastá-lo.</li>
+            </ul>
+            <p class="impact-phrase">Um centavo economizado é um centavo ganho. Cada corte inteligente libera recursos para o seu futuro.</p>
+            <div class="page-number">Página 11</div>
+        </div>
+
+        <div class="ebook-page text-page" id="page-12">
+            <h2>Módulo 4: Investimentos e Renda Passiva</h2>
+            <h1>Introdução aos Investimentos para FI</h1>
+            <div class="w-full mx-auto">
+                <h3 class="text-center">PREPARE-SE PARA MULTIPLICAR: Faça seu Dinheiro Trabalhar para Você</h3>
+                <p>
+                    Investir é o motor que impulsionará sua jornada para a Independência Financeira. É através dos investimentos que seu capital cresce e gera a renda passiva necessária para cobrir suas despesas. Não é preciso ser um especialista, mas entender os fundamentos é crucial.
+                </p>
+                <p>
+                    <b>Princípios Essenciais para Investir:</b>
+                </p>
+                <ul>
+                    <li><b>1. Diversificação:</b> A regra de ouro dos investimentos. Não coloque todos os ovos na mesma cesta. Distribua seus investimentos em diferentes classes de ativos (ações, títulos, fundos, imóveis), setores e geografias para reduzir riscos.</li>
+                    <li><b>2. Horizonte de Longo Prazo:</b> A Independência Financeira é um objetivo de longo prazo. Invista com a mentalidade de que o dinheiro ficará aplicado por muitos anos, permitindo que os juros compostos e o crescimento do mercado trabalhem a seu favor, superando as flutuações de curto prazo.</li>
+                    <li><b>3. Conheça seu Perfil de Risco:</b> Antes de investir, entenda sua tolerância a riscos. Você é conservador (prefere segurança e baixo risco), moderado (aceita algum risco para maior retorno) ou arrojado (busca altos retornos e aceita riscos maiores)? Seu perfil deve guiar suas escolhas de investimento.</li>
+                    <li><b>4. Comece Cedo e Seja Consistente:</b> Quanto mais cedo você começar a investir, mais tempo seu dinheiro terá para crescer. A consistência nos aportes mensais, mesmo que pequenos, é mais importante do que tentar "acertar o timing" do mercado.</li>
+                    <li><b>5. Educação Financeira Contínua:</b> O mundo dos investimentos está sempre evoluindo. Dedique tempo para aprender sobre diferentes tipos de investimentos, estratégias e como o mercado funciona.</li>
+                </ul>
+                <p>
+                    <b>Tipos Comuns de Investimentos para FI:</b>
+                </p>
+
+                <div class="interactive-section">
+                    <div class="interactive-header" data-target="rendaFixaDetails">
+                        <span>Renda Fixa</span>
+                        <i class="fas fa-chevron-right arrow-icon"></i>
+                    </div>
+                    <div id="rendaFixaDetails" class="interactive-content">
+                        <p>Títulos públicos (Tesouro Direto), CDBs, LCIs/LCAs. Oferecem mais segurança e previsibilidade, sendo ideais para a reserva de emergência e parte da carteira de longo prazo com menor risco.</p>
+                    </div>
+
+                    <div class="interactive-header" data-target="rendaVariavelDetails">
+                        <span>Renda Variável</span>
+                        <i class="fas fa-chevron-right arrow-icon"></i>
+                    </div>
+                    <div id="rendaVariavelDetails" class="interactive-content">
+                        <p>Ações de empresas, Fundos de Investimento (ETFs, Fundos Imobiliários). Possuem potencial de maior retorno, mas com maior volatilidade. Essenciais para o crescimento do patrimônio no longo prazo.</p>
+                    </div>
+
+                    <div class="interactive-header" data-target="fundosIndiceDetails">
+                        <span>Fundos de Índice (ETFs)</span>
+                        <i class="fas fa-chevron-right arrow-icon"></i>
+                    </div>
+                    <div id="fundosIndiceDetails" class="interactive-content">
+                        <p>Uma forma eficiente de diversificar, investindo em um portfólio que replica um índice de mercado (ex: S&P 500). Oferecem diversificação instantânea e custos geralmente mais baixos.</p>
+                    </div>
+
+                    <div class="interactive-header" data-target="imoveisDetails">
+                        <span>Imóveis</span>
+                        <i class="fas fa-chevron-right arrow-icon"></i>
+                    </div>
+                    <div id="imoveisDetails" class="interactive-content">
+                        <p>Podem gerar renda passiva através de aluguéis, mas exigem maior capital inicial, gestão e possuem menor liquidez. Fundos de Investimento Imobiliário (FIIs) são uma alternativa mais acessível.</p>
+                    </div>
+                </div>
+
+                <p class="impact-phrase text-center mt-8">📚 Comece pequeno, pense grande. Cada investimento é uma semente para sua árvore da liberdade.</p>
+            </div>
+            <div class="page-number">Página 12</div>
+        </div>
+
+        <div class="ebook-page visual-page" id="page-13">
+            <i class="fas fa-chart-line icon"></i>
+            <h2>Módulo 4: Investimentos e Renda Passiva</h2>
+            <h1>Renda Passiva e Juros Compostos</h1>
+            <p>
+                A <b>renda passiva</b> é a espinha dorsal da Independência Financeira. É o dinheiro que você ganha sem ter que trabalhar ativamente por ele, ou seja, seus investimentos trabalham para você. Exemplos incluem aluguéis de imóveis, dividendos de ações, juros de títulos e royalties. O objetivo é que essa renda passiva um dia cubra todas as suas despesas de vida.
+            </p>
+            <p>
+                O grande segredo por trás da construção de renda passiva é o poder dos <b>juros compostos</b>. Conhecido por Albert Einstein como a "8ª maravilha do mundo", os juros compostos são juros sobre juros. Isso significa que o rendimento que seu investimento gera também começa a render, criando um efeito bola de neve que acelera exponencialmente o crescimento do seu capital ao longo do tempo.
+            </p>
+            <p>
+                <b>Como os Juros Compostos Funcionam:</b>
+                <br>
+                Se você investe R$1.000 a 10% ao ano, no primeiro ano você ganha R$100. No segundo ano, você ganha 10% sobre R$1.100 (R$1.000 + R$100), totalizando R$110 de juros. Esse ciclo se repete, com sua base de cálculo aumentando a cada período, resultando em um crescimento muito mais rápido do que com juros simples.
+            </p>
+            <p>
+                <b>A Regra dos 72:</b> Uma forma rápida de estimar quanto tempo levará para o seu investimento dobrar. Basta dividir 72 pela taxa de juros anual. Por exemplo, se você tem um investimento que rende 8% ao ano, seu dinheiro dobrará em aproximadamente 9 anos (72 / 8 = 9).
+            </p>
+            <p class="impact-phrase">Einstein chamou de 8ª maravilha do mundo. Use o tempo e os juros compostos a seu favor para construir sua liberdade.</p>
+            <div class="page-number">Página 13</div>
+        </div>
+
+        <div class="ebook-page visual-page" id="page-14">
+            <i class="fas fa-shield-alt icon"></i>
+            <h2>Módulo 4: Investimentos e Renda Passiva</h2>
+            <h1>Riscos e Segurança Financeira</h1>
+            <div class="highlight-box">
+                PROTEJA SEU FUTURO: Invista com inteligência, proteja-se com sabedoria. Entender e gerenciar riscos é crucial.
+            </div>
+            <p class="mt-4 text-center max-w-2xl">
+                Todo investimento envolve algum nível de risco. Ignorá-los é um erro grave. A chave é entender os diferentes tipos de riscos e implementar estratégias para mitigá-los, garantindo a segurança do seu patrimônio e da sua jornada para a Independência Financeira.
+            </p>
+
+            <div class="interactive-section">
+                <div class="interactive-header" data-target="riscosInvestimentoDetails">
+                    <span>Tipos de Riscos de Investimento</span>
+                    <i class="fas fa-chevron-right arrow-icon"></i>
+                </div>
+                <div id="riscosInvestimentoDetails" class="interactive-content">
+                    <p>Conhecer os riscos é o primeiro passo para gerenciá-los:</p>
+                    <ul>
+                        <li><b>Risco de Mercado:</b> Flutuações nos preços dos ativos devido a fatores econômicos, políticos ou sociais (ex: crise econômica global).</li>
+                        <li><b>Risco de Inflação:</b> O poder de compra do seu dinheiro pode ser corroído pela inflação se seus investimentos não renderem acima dela.</li>
+                        <li><b>Risco de Liquidez:</b> Dificuldade em converter um investimento em dinheiro rapidamente sem perdas significativas (ex: imóvel difícil de vender rapidamente).</li>
+                        <li><b>Risco de Crédito:</b> Possibilidade de o emissor de um título (empresa ou governo) não honrar seus pagamentos de juros ou principal.</li>
+                    </ul>
+                </div>
+
+                <div class="interactive-header" data-target="mitigacaoRiscosDetails">
+                    <span>Estratégias de Mitigação de Riscos</span>
+                    <i class="fas fa-chevron-right arrow-icon"></i>
+                </div>
+                <div id="mitigacaoRiscosDetails" class="interactive-content">
+                    <p>Minimize a exposição a riscos com estas abordagens:</p>
+                    <ul>
+                        <li><b>Diversificação:</b> Essencial. Espalhe seus investimentos por diferentes classes de ativos (ações, títulos, imóveis), setores, geografias e tipos de empresas.</li>
+                        <li><b>Alocação de Ativos:</b> Defina a proporção de cada classe de ativo em seu portfólio com base em seu perfil de risco e horizonte de tempo. Rebalanceie periodicamente.</li>
+                        <li><b>Reinvestimento de Dividendos/Juros:</b> Permite que os juros compostos atuem em sua plenitude, acelerando o crescimento do patrimônio e diluindo o risco ao longo do tempo.</li>
+                        <li><b>Acompanhamento Constante:</b> Monitore seus investimentos e o cenário econômico, mas evite decisões impulsivas baseadas em flutuações de curto prazo.</li>
+                    </ul>
+                </div>
+
+                <div class="interactive-header" data-target="segurancaFinanceiraDetails">
+                    <span>O Papel da Segurança Financeira</span>
+                    <i class="fas fa-chevron-right arrow-icon"></i>
+                </div>
+                <div id="segurancaFinanceiraDetails" class="interactive-content">
+                    <p>Construa um escudo protetor para seu patrimônio:</p>
+                    <ul>
+                        <li><b>Fundo de Emergência:</b> Uma reserva de 6 a 12 meses de despesas básicas, mantida em investimentos de alta liquidez e baixo risco. É o seu primeiro escudo contra imprevistos.</li>
+                        <li><b>Seguros:</b> Proteja-se contra grandes perdas. Considere seguros de vida, saúde, residencial e de veículos para evitar que eventos inesperados comprometam seu patrimônio.</li>
+                        <li><b>Proteção Patrimonial:</b> Estruturas legais e financeiras para proteger seus bens de riscos como processos judiciais ou dívidas, garantindo a longevidade do seu legado.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <p class="impact-phrase mt-8">Seu futuro é seu maior investimento. Proteja-o com conhecimento e estratégias sólidas de gerenciamento de risco.</p>
+            <div class="page-number">Página 14</div>
+        </div>
+
+        <div class="ebook-page text-page" id="page-15">
+            <h2>Módulo 5: Estratégia de Longo Prazo e Vida com Propósito</h2>
+            <h1>Planejamento para 10, 20, 30 Anos</h1>
+            <div class="w-full mx-auto">
+                <h3 class="text-center">VISÃO DE LONGO ALCANCE: A Maratona da Independência Financeira</h3>
+                <p>
+                    A Independência Financeira não é um sprint de curta distância, mas uma maratona que exige visão, disciplina e adaptabilidade ao longo de décadas. Planejar para 10, 20 e 30 anos à frente permite que você estabeleça marcos, monitore seu progresso e faça os ajustes necessários.
+                </p>
+                <p>
+                    <b>Etapas do Planejamento de Longo Prazo:</b>
+                </p>
+                <ul>
+                    <li><b>1. Defina Metas Claras e Mensuráveis (SMART):</b>
+                        <ul>
+                            <li><b>Específicas:</b> "Ter X reais em investimentos" em vez de "ter muito dinheiro".</li>
+                            <li><b>Mensuráveis:</b> Com valores e prazos definidos.</li>
+                            <li><b>Atingíveis:</b> Realistas para sua capacidade de poupança e investimento.</li>
+                            <li><b>Relevantes:</b> Alinhadas aos seus valores e objetivos de vida.</li>
+                            <li><b>Temporizáveis:</b> Com um prazo final claro.</li>
+                        </ul>
+                    </li>
+                    <li><b>2. Divida em Marcos:</b> Quebre seu objetivo final de IF em marcos menores (ex: quitar dívidas em 2 anos, ter fundo de emergência em 1 ano, atingir X% do valor da IF em 5 anos). Celebrar esses marcos mantém a motivação.</li>
+                    <li><b>3. Revisão e Rebalanceamento Periódico:</b>
+                        <ul>
+                            <li><b>Anual/Semestral:</b> Revise seu orçamento, seus investimentos e seu progresso.</li>
+                            <li><b>Rebalanceamento:</b> Ajuste a alocação de seus ativos para que ela se mantenha alinhada ao seu perfil de risco e objetivos, vendendo o que cresceu demais e comprando o que ficou abaixo do peso.</li>
+                            <li><b>Adaptação:</b> A vida muda. Casamento, filhos, mudança de carreira, crises econômicas – seu plano deve ser flexível para se adaptar a essas realidades.</li>
+                        </ul>
+                    </li>
+                    <li><b>4. Mantenha a Disciplina e a Consistência:</b> A maior parte do trabalho é a execução consistente. Continue poupando, investindo e revisando, mesmo quando o mercado estiver volátil ou a motivação diminuir.</li>
+                    <li><b>5. Simulações e Projeções:</b> Use calculadoras de juros compostos e simuladores de aposentadoria para projetar seu futuro financeiro e ajustar suas contribuições.</li>
+                </ul>
+                <p class="impact-phrase text-center">⏳ Tempo é seu aliado mais valioso. Use-o com sabedoria, planejando cada década da sua jornada.</p>
+            </div>
+            <div class="page-number">Página 15</div>
+        </div>
+
+        <div class="ebook-page visual-page" id="page-16">
+            <i class="fas fa-globe-americas icon"></i>
+            <h2>Módulo 5: Estratégia de Longo Prazo e Vida com Propósito</h2>
+            <h1>Geoarbitragem, Mini-aposentadorias e Lifestyle Design</h1>
+            <div class="highlight-box">
+                REDEFINA SEU ESTILO DE VIDA: Mais do que dinheiro, a Independência Financeira é sobre viver intencionalmente e com propósito.
+            </div>
+            <p class="mt-4 text-center max-w-2xl">
+                A Independência Financeira abre portas para formas de viver que vão além do convencional. Não se trata apenas de acumular riqueza, mas de criar um estilo de vida que se alinha perfeitamente aos seus valores e aspirações.
+            </p>
+            <ul class="text-left mx-auto max-w-xl">
+                <li><b>1. Geoarbitragem:</b>
+                    <ul>
+                        <li><b>Conceito:</b> Aproveitar as diferenças no custo de vida entre diferentes regiões ou países. Se você tem uma renda em moeda forte (ex: dólar) ou uma renda passiva que atende a um custo de vida alto, pode se mudar para um local onde o custo de vida é significativamente menor.</li>
+                        <li><b>Vantagens:</b> Acelera sua jornada para a IF (se você se mudar para um lugar mais barato enquanto ainda trabalha) ou permite que você viva com menos renda passiva após a IF. Oferece novas experiências culturais e de vida.</li>
+                        <li><b>Considerações:</b> Vistos, impostos, barreiras linguísticas, adaptação cultural.</li>
+                    </ul>
+                </li>
+                <li><b>2. Mini-aposentadorias:</b>
+                    <ul>
+                        <li><b>Conceito:</b> Períodos sabáticos estratégicos de alguns meses ou até anos, tirados ao longo da sua carreira, em vez de esperar pela aposentadoria tradicional.</li>
+                        <li><b>Propósito:</b> Recarregar as energias, viajar, aprender uma nova habilidade, dedicar-se a um projeto pessoal, passar tempo com a família, ou simplesmente explorar o mundo sem a pressão do trabalho.</li>
+                        <li><b>Planejamento:</b> Exige poupança prévia para cobrir as despesas do período e, idealmente, ter alguma forma de renda passiva ou trabalho flexível para complementar.</li>
+                    </ul>
+                </li>
+                <li><b>3. Lifestyle Design:</b>
+                    <ul>
+                        <li><b>Conceito:</b> A arte de criar a vida que você realmente quer viver, em vez de seguir um roteiro pré-determinado. Envolve intencionalidade sobre como você gasta seu tempo, energia e dinheiro.</li>
+                        <li><b>Pilares:</b> Liberdade de tempo, liberdade de localização, liberdade de renda e liberdade de propósito.</li>
+                        <li><b>Exemplos:</b> Trabalhar remotamente de qualquer lugar do mundo, ter um negócio que se alinha à sua paixão, reduzir a jornada de trabalho para ter mais tempo livre, ou simplesmente viver de forma mais minimalista para focar no que realmente importa.</li>
+                    </ul>
+                </li>
+            </ul>
+            <p class="impact-phrase">Sua vida, seu projeto. A Independência Financeira é a tela em branco para você desenhar a vida dos seus sonhos.</p>
+            <div class="page-number">Página 16</div>
+        </div>
+
+        <div class="ebook-page text-page" id="page-17">
+            <h2>Módulo 5: Estratégia de Longo Prazo e Vida com Propósito</h2>
+            <h1>O que Fazer Depois de Atingir a FI</h1>
+            <div class="w-full mx-auto">
+                <h3 class="text-center">CELEBRE, MAS CONTINUE CRESCENDO: A Liberdade é um Novo Começo</h3>
+                <p>
+                    Atingir a Independência Financeira é uma conquista monumental, mas é importante entender que não é o fim da jornada, e sim o início de uma nova fase de vida. A liberdade financeira abre um leque de possibilidades e responsabilidades.
+                </p>
+                <p>
+                    <b>Novos Propósitos e Contribuições:</b>
+                </p>
+                <ul>
+                    <li><b>Voluntariado e Causas Sociais:</b> Dedique seu tempo e energia a causas que você acredita, contribuindo para um impacto positivo na sociedade.</li>
+                    <li><b>Hobbys e Paixões:</b> Explore e aprofunde-se em interesses que você sempre quis, mas não tinha tempo (música, arte, esportes, escrita).</li>
+                    <li><b>Aprendizado Contínuo:</b> Invista em seu desenvolvimento pessoal e intelectual. Aprenda novos idiomas, habilidades, ou continue seus estudos sem a pressão de uma carreira.</li>
+                    <li><b>Mentoria e Compartilhamento de Conhecimento:</b> Use sua experiência para guiar e inspirar outros em suas jornadas financeiras ou profissionais.</li>
+                    <li><b>Empreendedorismo por Paixão:</b> Inicie um negócio que não visa apenas o lucro, mas que é impulsionado por uma paixão genuína e um desejo de criar algo significativo.</li>
+                    </ul>
+                <p>
+                    <b>Gerenciamento do Patrimônio Pós-FI:</b>
+                </p>
+                <ul>
+                    <li><b>Fase de Decumulação:</b> Aprenda a gerenciar seu patrimônio para que ele continue gerando renda e dure por toda a vida, sem esgotar-se. Estratégias como a "regra dos 4%" são comuns.</li>
+                    <li><b>Manutenção e Rebalanceamento:</b> Continue monitorando seus investimentos e rebalanceando seu portfólio para se adaptar às mudanças do mercado e às suas necessidades de vida.</li>
+                    <li><b>Planejamento Sucessório e Legado:</b> Pense em como você deseja que seu patrimônio seja gerenciado e distribuído no futuro, e como você pode deixar um legado para as próximas gerações ou para a sociedade.</li>
+                </ul>
+                <p class="impact-phrase text-center">🚀 A liberdade é a base para uma vida plena e com propósito. Use-a para construir o futuro que você sempre sonhou.</p>
+            </div>
+            <div class="page-number">Página 17</div>
+        </div>
+
+        <div class="ebook-page visual-page" id="page-18">
+            <i class="fas fa-hand-holding-heart icon"></i>
+            <h2>Módulo 6: Legado e Propósito Além da Riqueza</h2>
+            <h1>Impacto Social e Filantropia</h1>
+            <div class="highlight-box">
+                MAIS DO QUE DINHEIRO: A verdadeira riqueza está em como você usa seus recursos para o bem maior.
+            </div>
+            <p class="mt-4 text-center max-w-2xl">
+                Uma vez alcançada a independência financeira, a questão passa de "como ganhar" para "como usar" seus recursos para criar um impacto significativo no mundo. A filantropia e o investimento socialmente responsável (ISR) tornam-se avenidas poderosas para alinhar seus valores com suas ações financeiras.
+            </p>
+            <ul class="text-left mx-auto max-w-xl">
+                <li><b>1. Filantropia Estratégica:</b>
+                    <ul>
+                        <li><b>Identifique Causas:</b> Apoie causas que ressoam com seus valores, seja educação, meio ambiente, saúde, ou justiça social.</li>
+                        <li><b>Pesquise Organizações:</b> Escolha instituições sérias e transparentes, que demonstrem impacto real.</li>
+                        <li><b>Doe Tempo e Recursos:</b> Além de dinheiro, sua experiência e tempo podem ser doações valiosas.</li>
+                    </ul>
+                </li>
+                <li><b>2. Investimento Socialmente Responsável (ISR):</b>
+                    <ul>
+                        <li><b>Invista em Empresas Éticas:</b> Direcione seu capital para empresas que demonstram responsabilidade ambiental, social e de governança (ESG).</li>
+                        <li><b>Fundos Temáticos:</b> Existem fundos de investimento focados em energias renováveis, saúde sustentável, igualdade social, entre outros.</li>
+                        <li><b>Impacto Duplo:</b> Busque retornos financeiros e impacto positivo simultaneamente.</li>
+                    </ul>
+                </li>
+                <li><b>3. Empreendedorismo Social:</b>
+                    <ul>
+                        <li><b>Negócios com Propósito:</b> Crie ou invista em empresas que buscam resolver problemas sociais ou ambientais enquanto geram lucro.</li>
+                        <li><b>Inovação para o Bem:</b> Use sua liberdade financeira para apoiar inovações que visam um futuro mais justo e sustentável.</li>
+                    </ul>
+                </li>
+            </ul>
+            <p class="impact-phrase">🌱 Sua liberdade financeira pode ser a semente para um mundo melhor. Cultive o impacto.</p>
+            <div class="page-number">Página 18</div>
+        </div>
+
+        <div class="ebook-page text-page" id="page-19">
+            <h2>Módulo 6: Legado e Propósito Além da Riqueza</h2>
+            <h1>Construindo um Legado Duradouro</h1>
+            <p>
+                A independência financeira não é apenas sobre o que você acumula, mas também sobre o que você deixa para trás. Construir um legado duradouro significa pensar além da sua própria vida e influenciar positivamente as gerações futuras e a comunidade.
+            </p>
+            <p>
+                <b>Elementos de um Legado Financeiro e Pessoal:</b>
+            </p>
+            <ul class="text-left mx-auto max-w-xl">
+                <li><b>1. Educação Financeira para a Família:</b>
+                    <ul>
+                        <li><b>Transmita Conhecimento:</b> Ensine seus filhos e netos sobre os princípios da independência financeira, poupança, investimento e gestão de dívidas.</li>
+                        <li><b>Crie Hábitos Saudáveis:</b> Incentive o consumo consciente e a valorização do trabalho e do dinheiro desde cedo.</li>
+                    </ul>
+                </li>
+                <li><b>2. Planejamento Sucessório:</b>
+                    <ul>
+                        <li><b>Testamento e Herança:</b> Organize seus bens e desejos para garantir uma transição suave do patrimônio, minimizando conflitos e impostos.</li>
+                        <li><b>Fundos e Doações:</b> Considere criar fundos fiduciários ou endowments para apoiar causas de longo prazo ou para beneficiar membros da família de forma estruturada.</li>
+                        </ul>
+                </li>
+                <li><b>3. Mentoria e Inspiração:</b>
+                    <ul>
+                        <li><b>Compartilhe sua Jornada:</b> Use sua história e experiência para inspirar e guiar outras pessoas em suas próprias buscas por liberdade financeira.</li>
+                        <li><b>Seja um Exemplo:</b> Viva de forma alinhada aos seus valores, mostrando que é possível alcançar a prosperidade com propósito.</li>
+                    </ul>
+                </li>
+                <li><b>4. Contribuições Duradouras:</b>
+                    <ul>
+                        <li><b>Projetos de Impacto:</b> Invista em projetos que terão um impacto positivo a longo prazo na sua comunidade ou no mundo.</li>
+                        <li><b>Criação de Fundações:</b> Para um impacto ainda maior, considere estabelecer uma fundação filantrópica que perpetue suas causas.</li>
+                    </ul>
+                </li>
+            </ul>
+            <p class="impact-phrase">🌳 O legado não é o que você guarda, mas o que você compartilha e planta para o futuro.</p>
+            <div class="page-number">Página 19</div>
+        </div>
+
+        <div class="ebook-page visual-page" id="page-20">
+            <i class="fas fa-infinity icon"></i>
+            <h2>Módulo 6: Legado e Propósito Além da Riqueza</h2>
+            <h1>A Jornada Continua: Crescimento Pessoal e Financeiro</h1>
+            <div class="highlight-box">
+                NÃO É UM FIM, É UM RECOMEÇO: A independência financeira é a plataforma para uma vida de aprendizado e realização contínuos.
+            </div>
+            <p class="mt-4 text-center max-w-2xl">
+                Atingir a independência financeira é um marco incrível, mas não significa que a jornada acabou. Pelo contrário, é o início de uma nova fase, onde o foco se desloca da acumulação para a **realização pessoal e o crescimento contínuo**. A liberdade recém-conquistada oferece o tempo e a flexibilidade para explorar novas paixões, aprofundar conhecimentos e viver uma vida com propósito ainda maior.
+            </p>
+            <ul class="text-left mx-auto max-w-xl">
+                <li><b>1. Aprendizado Contínuo:</b>
+                    <ul>
+                        <li><b>Novas Habilidades:</b> Dedique-se a aprender algo completamente novo, seja um idioma, um instrumento musical, ou uma nova área de estudo.</li>
+                        <li><b>Leitura e Pesquisa:</b> Aprofunde-se em tópicos que sempre te interessaram, sem a pressão de prazos ou resultados.</li>
+                        <li><b>Viagens e Experiências:</b> Explore o mundo e suas culturas, expandindo sua perspectiva e conhecimento de vida.</li>
+                    </ul>
+                </li>
+                <li><b>2. Saúde e Bem-Estar:</b>
+                    <ul>
+                        <li><b>Invista em Si:</b> Com mais tempo livre, você pode focar em sua saúde física e mental, praticando exercícios, meditação, e cuidando da alimentação.</li>
+                        <li><b>Redução de Estresse:</b> A eliminação da pressão financeira reduz significativamente o estresse, impactando positivamente sua qualidade de vida.</li>
+                    </ul>
+                </li>
+                <li><b>3. Relacionamentos e Comunidade:</b>
+                    <ul>
+                        <li><b>Tempo de Qualidade:</b> Dedique mais tempo à família e amigos, fortalecendo laços e criando memórias.</li>
+                        <li><b>Engajamento Comunitário:</b> Participe ativamente de sua comunidade, seja através de clubes, grupos de interesse, ou iniciativas locais.</li>
+                    </ul>
+                </li>
+                <li><b>4. Reavaliação de Propósito:</b>
+                    <ul>
+                        <li><b>Novas Paixões:</b> A liberdade permite que você descubra ou redescubra paixões que talvez não fossem viáveis antes.</li>
+                        <li><b>Contribuição:</b> Encontre novas formas de contribuir para o mundo, seja através de projetos pessoais, arte, ou inovação.</li>
+                    </ul>
+                </li>
+            </ul>
+            <p class="impact-phrase">✨ A verdadeira riqueza está na liberdade de ser quem você é, e de continuar crescendo, sempre.</p>
+            <div class="page-number">Página 20</div>
+        </div>
+
+    </div>
+
+    <script>
+        // Function to toggle interactive content sections
+        function setupInteractiveSections() {
+            document.querySelectorAll('.interactive-header').forEach(header => {
+                header.addEventListener('click', () => {
+                    const targetId = header.dataset.target;
+                    const content = document.getElementById(targetId);
+                    const arrowIcon = header.querySelector('.arrow-icon');
+
+                    if (content.classList.contains('expanded')) {
+                        content.classList.remove('expanded');
+                        arrowIcon.classList.remove('rotated');
+                    } else {
+                        // Close other expanded sections in the same parent if desired
+                        // document.querySelectorAll('.interactive-content.expanded').forEach(openContent => {
+                        //     openContent.classList.remove('expanded');
+                        //     openContent.previousElementSibling.querySelector('.arrow-icon').classList.remove('rotated');
+                        // });
+                        content.classList.add('expanded');
+                        arrowIcon.classList.add('rotated');
+                    }
+                });
+            });
+        }
+
+        // Gemini API integration for Financial Tip Generator
+        document.getElementById('generateTipBtn').addEventListener('click', async () => {
+            const tipResultDiv = document.getElementById('tipResult');
+            const tipTextP = document.getElementById('tipText');
+            const tipLoadingDiv = document.getElementById('tipLoading');
+
+            tipResultDiv.classList.remove('hidden');
+            tipTextP.textContent = '';
+            tipLoadingDiv.classList.remove('hidden');
+
+            const prompt = "Gere uma dica de finanças pessoais concisa e acionável para alguém que está começando sua jornada rumo à independência financeira, em português do Brasil.";
+            let chatHistory = [];
+            chatHistory.push({ role: "user", parts: [{ text: prompt }] });
+            const payload = { contents: chatHistory };
+            // IMPORTANTE: Se você estiver executando este arquivo HTML localmente,
+            // você precisará inserir sua própria chave de API do Google Cloud Console aqui.
+            // Caso contrário, a funcionalidade de geração de dicas não funcionará.
+            const apiKey = "AIzaSyCUtplC2diDjDuLV4dJQaMWumPLNS5vjuk"; // Sua chave de API inserida aqui
+
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+            try {
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!response.ok) {
+                    const errorData = await response.json();
+                    console.error('API Response Error:', response.status, response.statusText, errorData);
+                    tipTextP.textContent = `Erro na API: ${response.status} - ${errorData.error.message || 'Resposta inesperada.'}`;
+                    return; // Exit if response is not OK
+                }
+
+                const result = await response.json();
+
+                if (result.candidates && result.candidates.length > 0 &&
+                    result.candidates[0].content && result.candidates[0].content.parts &&
+                    result.candidates[0].content.parts.length > 0) {
+                    const text = result.candidates[0].content.parts[0].text;
+                    tipTextP.textContent = text;
+                } else {
+                    tipTextP.textContent = 'Não foi possível gerar a dica. Estrutura de resposta inesperada.';
+                    console.error('Unexpected API response structure:', result);
+                }
+            } catch (error) {
+                tipTextP.textContent = 'Erro ao conectar com a API. Verifique sua conexão ou tente novamente.';
+                console.error('API Fetch Error:', error);
+            } finally {
+                tipLoadingDiv.classList.add('hidden');
+            }
+        });
+
+        // Gemini API integration for Extra Income Ideas Generator
+        document.getElementById('generateIdeasBtn').addEventListener('click', async () => {
+            const skillsInput = document.getElementById('skillsInput').value;
+            const ideasResultDiv = document.getElementById('ideasResult');
+            const ideasTextP = document.getElementById('ideasText');
+            const ideasLoadingDiv = document.getElementById('ideasLoading');
+
+            if (!skillsInput.trim()) {
+                ideasResultDiv.classList.remove('hidden');
+                ideasTextP.textContent = 'Por favor, insira suas habilidades ou interesses.';
+                return;
+            }
+
+            ideasResultDiv.classList.remove('hidden');
+            ideasTextP.textContent = '';
+            ideasLoadingDiv.classList.remove('hidden');
+
+            const prompt = `Dadas as seguintes habilidades e interesses: ${skillsInput}, sugira 3-5 ideias práticas e acionáveis para renda extra (side hustles) em português do Brasil. Foque em oportunidades realistas que podem ser iniciadas com baixo capital. Apresente-as como uma lista com marcadores.`;
+            let chatHistory = [];
+            chatHistory.push({ role: "user", parts: [{ text: prompt }] });
+            const payload = { contents: chatHistory };
+            // IMPORTANTE: Se você estiver executando este arquivo HTML localmente,
+            // você precisará inserir sua própria chave de API do Google Cloud Console aqui.
+            // Caso contrário, a funcionalidade de geração de ideias não funcionará.
+            const apiKey = "AIzaSyCUtplC2diDjDuLV4dJQaMWumPLNS5vjuk"; // Sua chave de API inserida aqui
+
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+            try {
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!response.ok) {
+                    const errorData = await response.json();
+                    console.error('API Response Error:', response.status, response.statusText, errorData);
+                    ideasTextP.textContent = `Erro na API: ${response.status} - ${errorData.error.message || 'Resposta inesperada.'}`;
+                    return; // Exit if response is not OK
+                }
+
+                const result = await response.json();
+
+                if (result.candidates && result.candidates.length > 0 &&
+                    result.candidates[0].content && result.candidates[0].content.parts &&
+                    result.candidates[0].content.parts.length > 0) {
+                    const text = result.candidates[0].content.parts[0].text;
+                    ideasTextP.innerHTML = text.replace(/\n/g, '<br>'); // Preserve newlines for list formatting
+                } else {
+                    ideasTextP.textContent = 'Não foi possível gerar ideias. Estrutura de resposta inesperada.';
+                    console.error('Unexpected API response structure:', result);
+                }
+            } catch (error) {
+                ideasTextP.textContent = 'Erro ao conectar com a API. Verifique sua conexão ou tente novamente.';
+                console.error('API Fetch Error:', error);
+            } finally {
+                ideasLoadingDiv.classList.add('hidden');
+            }
+        });
+
+        // Setup interactive sections on page load
+        window.onload = setupInteractiveSections;
+    </script>
+</body>
+</html>
